@@ -15,7 +15,13 @@ export class HeroRouter{
     res.send(Heroes);
   }
 
+  //toma cada manejador y lo atacha a un Express.Router enpoint
   init(){
     this.router.get('/', this.getAll);
   }
 }
+
+const heroRoutes = new HeroRouter();
+heroRoutes.init();
+
+export default heroRoutes.router;

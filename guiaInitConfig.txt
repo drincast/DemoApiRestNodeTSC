@@ -1,0 +1,9 @@
+npm init -y
+npm install
+
+gulp scripts
+npm start
+
+
+#para pruebas
+npm test

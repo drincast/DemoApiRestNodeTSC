@@ -3,6 +3,8 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 
+import HeroRouter from './routes/HeroRouter';
+
 //crea y configura un servidor web espressjs
 class App{
   public express: express.Application;
@@ -30,7 +32,9 @@ class App{
         message: 'api rest node con typescript'
       });
     });
+
     this.express.use('/', router);
+    this.express.use('/api/v1/heroes', HeroRouter)
   }
 }
 

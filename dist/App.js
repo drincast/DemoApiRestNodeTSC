@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const HeroRouter_1 = require("./routes/HeroRouter");
 //crea y configura un servidor web espressjs
 class App {
     //ejecuta los metodos de configuración sobre la instancia de express
@@ -26,6 +27,7 @@ class App {
             });
         });
         this.express.use('/', router);
+        this.express.use('/api/v1/heroes', HeroRouter_1.default);
     }
 }
 exports.default = new App().express;

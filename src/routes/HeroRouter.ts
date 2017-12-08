@@ -1,4 +1,7 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import mongoose = require('mongoose');
+import Hero from '../models/Hero';
+
 const Heroes = require('../data');
 
 export class HeroRouter{
@@ -12,7 +15,21 @@ export class HeroRouter{
 
   //obtener todos los heroes
   public getAll(req: Request, res: Response, next: NextFunction){
-    res.send(Heroes);
+    console.log('en getAll ...');
+    Hero.find((err, heros) => {
+      if(err){
+        res.status(500).json({err});
+      }
+      res.status(200).jsonp({heros});
+    });
+
+    // User.find()
+    // .then((data) => {
+    //   res.status(200).json({ data });
+    // })
+    // .catch((error) => {
+    //   res.status(500).json({ error });
+    // })
   }
 
   public getOne(req: Request, res: Response, next: NextFunction){

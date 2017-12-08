@@ -2,6 +2,10 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import * as mongoose from 'mongoose';
+
+//schemas
+//import { heroSchema } from './schema/hero';
 
 import HeroRouter from './routes/HeroRouter';
 
@@ -9,11 +13,17 @@ import HeroRouter from './routes/HeroRouter';
 class App{
   public express: express.Application;
 
+  //private model: IModel;
+
   //ejecuta los metodos de configuración sobre la instancia de express
   constructor(){
     this.express = express();
     this.middleware();
     this.routes();
+
+    //this.model = new Object();
+
+    this.configDB();
   }
 
   //configura el middleware express
@@ -35,6 +45,14 @@ class App{
 
     this.express.use('/', router);
     this.express.use('/api/v1/heroes', HeroRouter)
+  }
+
+  //configuracion de base de datos.
+  public configDB(): void{
+    console.log('iniciando conexión ...');
+    const MONGODB_CONNECTION: string = "mongodb://localhost:27017/heros";
+
+    mongoose.connect(MONGODB_CONNECTION, {useMongoClient: true,});
   }
 }
 

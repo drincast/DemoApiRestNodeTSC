@@ -4,18 +4,15 @@ const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//schemas
-//import { heroSchema } from './schema/hero';
 const HeroRouter_1 = require("./routes/HeroRouter");
+const HeroRouter2_1 = require("./routes/HeroRouter2");
 //crea y configura un servidor web espressjs
 class App {
-    //private model: IModel;
     //ejecuta los metodos de configuración sobre la instancia de express
     constructor() {
         this.express = express();
         this.middleware();
         this.routes();
-        //this.model = new Object();
         this.configDB();
     }
     //configura el middleware express
@@ -34,6 +31,7 @@ class App {
         });
         this.express.use('/', router);
         this.express.use('/api/v1/heroes', HeroRouter_1.default);
+        this.express.use('/api/v1/heroes2', HeroRouter2_1.default);
     }
     //configuracion de base de datos.
     configDB() {

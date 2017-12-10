@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const HeroSchema = new Schema({
+var HeroSchema = new Schema({
   id: {
     type: String,
   },
@@ -12,7 +12,7 @@ const HeroSchema = new Schema({
   },
 
   aliases: {
-    type: String,
+    type: [String],
   },
 
   occupation: {
@@ -24,7 +24,7 @@ const HeroSchema = new Schema({
   },
 
   height: {
-    type: String,
+    type: Schema.Types.Mixed,
   },
 
   hair: {
@@ -36,7 +36,7 @@ const HeroSchema = new Schema({
   },
 
   powers: {
-    type: String,
+    type: [String],
   }
 });
 

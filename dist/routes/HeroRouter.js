@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const Hero_1 = require("../models/Hero");
-const Heroes = require('../data');
+const Heroes = require('../Data/data');
 class HeroRouter {
     //inicializa HeroRouter
     constructor() {
@@ -11,20 +10,7 @@ class HeroRouter {
     }
     //obtener todos los heroes
     getAll(req, res, next) {
-        console.log('en getAll ...');
-        Hero_1.default.find((err, heros) => {
-            if (err) {
-                res.status(500).json({ err });
-            }
-            res.status(200).jsonp({ heros });
-        });
-        // User.find()
-        // .then((data) => {
-        //   res.status(200).json({ data });
-        // })
-        // .catch((error) => {
-        //   res.status(500).json({ error });
-        // })
+        res.send(Heroes);
     }
     getOne(req, res, next) {
         let query = parseInt(req.params.id);

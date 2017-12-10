@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const HeroSchema = new Schema({
+var HeroSchema = new Schema({
     id: {
         type: String,
     },
@@ -11,7 +11,7 @@ const HeroSchema = new Schema({
         required: true
     },
     aliases: {
-        type: String,
+        type: [String],
     },
     occupation: {
         type: String,
@@ -20,7 +20,7 @@ const HeroSchema = new Schema({
         type: String,
     },
     height: {
-        type: String,
+        type: Schema.Types.Mixed,
     },
     hair: {
         type: String,
@@ -29,7 +29,7 @@ const HeroSchema = new Schema({
         type: String,
     },
     powers: {
-        type: String,
+        type: [String],
     }
 });
 exports.default = mongoose.model('Hero', HeroSchema);

@@ -4,25 +4,18 @@ import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
 
-//schemas
-//import { heroSchema } from './schema/hero';
-
 import HeroRouter from './routes/HeroRouter';
+import HeroRouter2 from './routes/HeroRouter2';
 
 //crea y configura un servidor web espressjs
 class App{
   public express: express.Application;
-
-  //private model: IModel;
 
   //ejecuta los metodos de configuración sobre la instancia de express
   constructor(){
     this.express = express();
     this.middleware();
     this.routes();
-
-    //this.model = new Object();
-
     this.configDB();
   }
 
@@ -44,7 +37,8 @@ class App{
     });
 
     this.express.use('/', router);
-    this.express.use('/api/v1/heroes', HeroRouter)
+    this.express.use('/api/v1/heroes', HeroRouter);
+    this.express.use('/api/v1/heroes2', HeroRouter2);
   }
 
   //configuracion de base de datos.

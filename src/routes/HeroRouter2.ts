@@ -124,7 +124,7 @@ export class HeroRouter2{
   init(){
     this.router.get('/', this.getAll)
     this.router.get('/:id', this.getOne);
-    //this.router.get('/name/:name', this.getByName);
+    this.router.get('/name/:name', this.getByName);
     this.router.put('/:id', this.updateOne);
     this.router.post('/', this.insertOne);
     this.router.delete('/:id', this.deleteOne);

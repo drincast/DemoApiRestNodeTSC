@@ -58,4 +58,6 @@ typings/
 .env
 
 #del proyecto archivos de dist
-#dist/*.js
+dist/*.js
+dist/models
+dist/routes

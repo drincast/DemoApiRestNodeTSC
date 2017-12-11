@@ -1,7 +1,7 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import mongoose = require('mongoose');
 import Hero from '../models/Hero';
-import Promise = require('mongoose-promise');
+//import Promise = require('mongoose-promise');
 
 export class HeroRouter2{
   router: Router
@@ -128,6 +128,7 @@ export class HeroRouter2{
     this.router.put('/:id', this.updateOne);
     this.router.post('/', this.insertOne);
     this.router.delete('/:id', this.deleteOne);
+    console.log('en init de heroroutes2');
   }
 }
 

@@ -4,12 +4,14 @@ import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
 
+import { DataDB } from './Data/DataDB';
 import HeroRouter from './routes/HeroRouter';
 import HeroRouter2 from './routes/HeroRouter2';
 
 //crea y configura un servidor web espressjs
 class App{
   public express: express.Application;
+  public conDB: DataDB;
 
   //ejecuta los metodos de configuración sobre la instancia de express
   constructor(){
@@ -43,10 +45,10 @@ class App{
 
   //configuracion de base de datos.
   public configDB(): void{
-    console.log('iniciando conexión ...');
-    const MONGODB_CONNECTION: string = "mongodb://localhost:27017/heros";
-
-    mongoose.connect(MONGODB_CONNECTION, {useMongoClient: true,});
+    // console.log('iniciando conexión ...');
+    // const MONGODB_CONNECTION: string = "mongodb://localhost:27017/heros";
+    // mongoose.connect(MONGODB_CONNECTION, {useMongoClient: true,});
+    this.conDB = new DataDB();
   }
 }
 

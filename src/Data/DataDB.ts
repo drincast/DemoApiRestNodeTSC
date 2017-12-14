@@ -18,3 +18,4 @@ export class DataDB{
 //dataDB.init();
 
 //export default dataDB;
+//"urlBD": "mongodb://localhost:27017/heros"

@@ -2,8 +2,8 @@ import * as http from 'http';
 import * as mongoose from 'mongoose';
 const configApp = require('../configApp');
 
-const serverDB = http.createServer();
-const port = process.env.POST || 3000;
+//const serverDB = http.createServer();
+//const port = process.env.POST || 3000;
 const database = process.env.MONGO_URL || configApp.urlBDNube;
 
 // mongoose.connect(database, onDBConnect);
@@ -29,7 +29,6 @@ export class DataDB{
 
   init(){
     console.log('iniciando conexión ... en clase');
-    console.log(configApp.urlBDNube);
     //const MONGODB_CONNECTION: string = configApp.urlBD;
     mongoose.connect(database, {useMongoClient: true,});
   }

@@ -1,3 +1,4 @@
 {
-  "urlBD": "mongodb://drincast:321mlab@@A.mlab.com:33760/heros"
+  "urlBD": "mongodb://drincast:321mlab@@A.mlab.com:33760/heros",
+  "urlBDNube": "mongodb://herosdb:herosdb123@ds033760.mlab.com:33760/heros"
 }

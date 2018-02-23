@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as mongoose from 'mongoose';
-const configApp = require('../configApp');
+const configApp = require('../configApp.json');
 
 //const serverDB = http.createServer();
 //const port = process.env.POST || 3000;
